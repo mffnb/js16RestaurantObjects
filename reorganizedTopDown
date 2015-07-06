@@ -1,0 +1,176 @@
+$(document).on('ready', function() {
+
+// Restaurant
+	// -name
+	// -description
+	// --menu
+
+var Restaurant = function (name, description, menu) {
+    this.name = name;
+    this.description = description;
+    this.menu = menu;
+}
+
+Restaurant.prototype.toString = function () {
+    var output = 'Name : ' + this.name + '\nDescription : ' + this.description + '\nMenu : ' + this.menu;
+    //    console.log(output);
+    return output;
+
+
+var rioGrande = new Restaurant(rioMenu);
+console.log(rioGrande.toString());
+
+
+
+	// Menu
+	// -menu item
+	// -- Plates []  (array of plates)
+	// -- Drinks
+
+var Menu = function (plates) {
+    this.plates = plates;
+}
+Menu.prototype.toString = function () {
+    //    var output = '\nMenu : ' + this.plates.map;
+    this.plate.map(
+        function (plate) {
+            return plate.toString();
+        });
+}
+var rioMenu = new Menu(bigBurrito);
+
+// Customer
+//   -string dietaryPreference
+var Customer = function (dietaryPreference) {
+    this.dietaryPreference = dietaryPreference;
+}
+Customer.prototype.toString = function () {
+    var output = '\nDietary Preference : ' + this.dietaryPreference;
+    //    console.log(output);
+    return output;
+}
+
+
+
+
+// Order
+//	 -- Plates []    (array of plates)
+
+var Order = function (plates) {
+    this.plates = plates;
+}
+Order.prototype.toString = function () {
+    var output = '\nPlates : ' + this.plates;
+    //    console.log(output);
+    return output;
+}
+
+
+// Drink
+// -name
+// -description
+// -price
+//   -- ingredients [] (array of food items)
+
+
+var Drink = function (name, description, price, ingredients) {
+    this.name = name;
+    this.description = description;
+    this.price = price;
+    this.ingredients = ingredients;
+}
+
+Drink.prototype.toString = function () {
+    var output = 'Name : ' + this.name + '\nDescription : ' + this.description + '\nPrice : ' + this.price + '\nIngredients : ' + this.ingredients;
+    //    console.log(output);
+    return output;
+}
+
+
+// Plate
+// -name
+// -description
+// -price
+//   -- ingredients [] (array of food items)
+
+var Plate = function (name, description, price, ingredients) {
+    this.name = name;
+    this.description = description;
+    this.price = price;
+    this.ingredients = ingredients;
+
+Plate.prototype.toString = function () {
+    var output = 'Name : ' + this.name + '\nDescription : ' + this.description + '\nPrice : ' + this.price + '\nIngredients : ' + this.ingredients;
+    //    console.log(output);
+    return output;
+}
+
+Plate.prototype.isVegan = function () {
+    return this.foodItem.vegan;
+}
+
+Plate.prototype.isGlutenFree = function () {
+    return and(pluck(this.ingredients, 'glutenFree'));
+}
+
+Plate.prototype.isCitrusFree = function () {
+    console.log("CITRUS? : " + this.foodItem.citrusFree);
+    return this.foodItem.citrusFree;
+}
+
+
+	// -- Burrito Plate
+	//		-- isVegan
+	//		-- isGlutenFree
+	// 		-- isCitrusFree
+
+	// -- Guacamole Plate
+
+	// -- Margarita Drink
+
+
+var bigBurrito = new Plate('Burrito', 'Delicious', '3.50', [tortilla, lettuce, chicken, sriracha]);
+var guacPlate = new Plate('Guac', 'Delicious', '5.50', ['Avocados', 'Salsa', 'Lime', 'Cilantro']);
+var margarita = new Plate('Ballin Blue Marg', 'Delicious', '.50', ['Tequila', 'Lime Juice', 'Margarita Mix', 'TripleSec']);
+
+
+
+
+
+// FoodItem
+// -name
+// -# calories
+// -boolean vegan
+// -boolean glutenFree
+// -boolean citrusFree 
+
+
+
+var FoodItem = function (name, calories, vegan, glutenFree, citrusFree) {
+    this.name = name;
+    this.calories = calories;
+    this.vegan = vegan;
+    this.glutenFree = glutenFree;
+    this.citrusFree = citrusFree;
+}
+
+
+FoodItem.prototype.toString = function () {
+    var output = 'Name : ' + this.name + '\nCalories : ' + this.calories + '\nVegan : ' + this.vegan + '\nGluten Free : ' + this.glutenFree + '\nCitrus Free????? : ' + this.citrusFree;
+    //    console.log(output);
+    return output;
+}
+
+var tortilla = new FoodItem('Tortilla', '150', true, false, true);
+var lettuce = new FoodItem('lettuce', '20', true, true, true);
+var chicken = new FoodItem('Chicken', '130', false, true, true);
+var sriracha = new FoodItem('Sriracha', '90', true, false, true);
+var avocados = new FoodItem('avocados', '250', true, true, false);
+var salsa = new FoodItem('salsa', '110', true, true, false);
+var lime = new FoodItem('lime', '30', true, true, false);
+var cilantro = new FoodItem('cilantro', '15', true, true, false);
+var tequila = new FoodItem('tequila', '100', true, true, false);
+var margaritaMix = new FoodItem('Margarita Mix', 190, true, true, false)
+var tripleSec = new FoodItem('TripleSec', 170, true, true, true)
+
+};
